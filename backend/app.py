@@ -114,9 +114,18 @@ def recommend():
         app.logger.error(f"An unexpected error occurred in /recommend route for user_id '{user_id_str}': {e}", exc_info=True)
         return jsonify({"error": "An internal server error occurred.", "details": str(e)}), 500
 
+@app.route('/', methods=['GET'])
+def home():
+    return jsonify({
+        "message": "Welcome to the Book Recommendation API",
+        "endpoints": {
+            "/recommend": "GET - Get book recommendations for a user. Query parameter: user_id"
+        }
+    })
+
 if __name__ == '__main__':
     import logging
     logging.basicConfig(level=logging.INFO)
 
     load_recommendation_data() 
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0', port=8001)
