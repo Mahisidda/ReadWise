@@ -1,0 +1,15 @@
+# Core dependencies
+flask
+flask-cors
+
+# Data handling
+pandas
+numpy
+scipy
+
+# Machine learning
+scikit-learn
+
+# Progress bar (used in tqdm if needed)
+tqdm
+joblib
